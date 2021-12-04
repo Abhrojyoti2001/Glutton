@@ -38,7 +38,7 @@
 				}else{
 					$rating_color = 'bg-success';
 				}
-				echo '<div class="col-md-3 col-sm-6 mb-4">
+				echo '<div class="col-md-3 col-sm-6 mb-4 d-flex align-items-stretch">
 					<a class="card clickable-card"  href="restaurante.php?restaurant_id='.$row["restaurant_id"].'">
 						<div class="card-body">
 							<img src='.$row["img-sm"].' width="100%">
