@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2021 at 06:00 PM
+-- Generation Time: Dec 04, 2021 at 05:30 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -27,7 +27,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `address`
 --
 
-DROP TABLE IF EXISTS `address`;
 CREATE TABLE `address` (
   `sl_no` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -48,7 +47,6 @@ INSERT INTO `address` (`sl_no`, `user_id`, `address`) VALUES
 -- Table structure for table `bookmarks`
 --
 
-DROP TABLE IF EXISTS `bookmarks`;
 CREATE TABLE `bookmarks` (
   `bookmarks_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -62,7 +60,8 @@ CREATE TABLE `bookmarks` (
 INSERT INTO `bookmarks` (`bookmarks_id`, `user_id`, `restaurant_id`) VALUES
 (8, 1, 9),
 (13, 1, 7),
-(14, 1, 1);
+(14, 1, 1),
+(15, 1, 152);
 
 -- --------------------------------------------------------
 
@@ -70,7 +69,6 @@ INSERT INTO `bookmarks` (`bookmarks_id`, `user_id`, `restaurant_id`) VALUES
 -- Table structure for table `carts`
 --
 
-DROP TABLE IF EXISTS `carts`;
 CREATE TABLE `carts` (
   `cart_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -85,7 +83,6 @@ CREATE TABLE `carts` (
 -- Table structure for table `giftcards`
 --
 
-DROP TABLE IF EXISTS `giftcards`;
 CREATE TABLE `giftcards` (
   `giftcards_id` int(11) NOT NULL,
   `card_name` varchar(255) NOT NULL,
@@ -109,7 +106,6 @@ INSERT INTO `giftcards` (`giftcards_id`, `card_name`, `code`, `discount`, `statu
 -- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `orders_id` varchar(255) NOT NULL,
   `orders_date` date NOT NULL,
@@ -128,7 +124,8 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`orders_id`, `orders_date`, `user_id`, `name`, `address`, `amount`, `transaction_id`, `payment_method`, `delivery_status`) VALUES
 ('618b9940190be', '2021-11-10', 1, 'Admin Chatterjee', 'BAKULTALA-LANE, Ramrajatala, Howrah.\r\nPin: 888888,\r\nLandmark: Newstar club,\r\nMobile: 0123456789', 3847, '618b9f3115d0d', 'Dedit Cards', 1),
-('618bef4c9b51a', '2021-11-10', 1, 'Admin Chatterjee', 'Polshipara, Dhirunagar, Bankura.Pin: 666331,Landmark: You park,Mobile: 6663377894', 4691, '618bf015759e9', 'NEFT', 0);
+('618bef4c9b51a', '2021-11-11', 1, 'Admin Chatterjee', 'Polshipara, Dhirunagar, Bankura.Pin: 666331,Landmark: You park,Mobile: 6663377894', 4691, '618bf015759e9', 'NEFT', 1),
+('61ab8fb75fcac', '2021-11-19', 1, 'Admin Chatterjee', 'Polshipara, Dhirunagar, Bankura.Pin: 666331,Landmark: You park,Mobile: 6663377894', 2549, '61ab90335d50a', 'UPI', 1);
 
 -- --------------------------------------------------------
 
@@ -136,7 +133,6 @@ INSERT INTO `orders` (`orders_id`, `orders_date`, `user_id`, `name`, `address`, 
 -- Table structure for table `orders_details`
 --
 
-DROP TABLE IF EXISTS `orders_details`;
 CREATE TABLE `orders_details` (
   `sl_no` int(11) NOT NULL,
   `orders_id` varchar(255) NOT NULL,
@@ -160,7 +156,11 @@ INSERT INTO `orders_details` (`sl_no`, `orders_id`, `img-sm`, `restaurant_id`, `
 (9, '618bef4c9b51a', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU', 6, 'Abhiruchi Hotel', 'Tandoori Chicken', 275, 3),
 (10, '618bef4c9b51a', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU', 166, 'Coffee Mechanics', 'Mushroom Sausage Omelette', 350, 2),
 (11, '618bef4c9b51a', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU', 166, 'Coffee Mechanics', 'Signature Mazagran', 350, 3),
-(12, '618bef4c9b51a', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU', 166, 'Coffee Mechanics', 'Coconut Coffee Cooler', 350, 4);
+(12, '618bef4c9b51a', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU', 166, 'Coffee Mechanics', 'Coconut Coffee Cooler', 350, 4),
+(13, '61ab8fb75fcac', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU', 100, 'Cafe Felix', 'ell Peppers and Artichokes Pizza', 850, 1),
+(14, '61ab8fb75fcac', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU', 100, 'Cafe Felix', 'Vegetarian Platter', 850, 1),
+(15, '61ab8fb75fcac', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU', 152, 'Cake Chemistry', 'Choco Walnut Cake => 500 grams', 250, 2),
+(16, '61ab8fb75fcac', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU', 152, 'Cake Chemistry', 'Irish Coffee Cake => 1 kg', 250, 2);
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,6 @@ INSERT INTO `orders_details` (`sl_no`, `orders_id`, `img-sm`, `restaurant_id`, `
 -- Table structure for table `restaurants`
 --
 
-DROP TABLE IF EXISTS `restaurants`;
 CREATE TABLE `restaurants` (
   `restaurant_id` int(5) NOT NULL,
   `img-sm` varchar(255) NOT NULL DEFAULT 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6xcyToxXogMlEDL7YHP4B9zKHr0qG5roqw&usqp=CAU',
@@ -730,7 +729,6 @@ INSERT INTO `restaurants` (`restaurant_id`, `img-sm`, `img-lg`, `address`, `name
 -- Table structure for table `reviews`
 --
 
-DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
   `reviews_date` date NOT NULL,
@@ -758,7 +756,6 @@ INSERT INTO `reviews` (`id`, `reviews_date`, `user_id`, `restaurant_id`, `rating
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -781,7 +778,6 @@ INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `pic`) VALUES
 -- Table structure for table `wishlist`
 --
 
-DROP TABLE IF EXISTS `wishlist`;
 CREATE TABLE `wishlist` (
   `wishlist_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -799,7 +795,10 @@ INSERT INTO `wishlist` (`wishlist_id`, `user_id`, `restaurant_id`, `dish_name`) 
 (6, 1, 11, 'Pomegranate Mojito'),
 (9, 1, 5, 'Boneless Barbecue Fish'),
 (10, 1, 5, 'Veg Singapore Fried Rice'),
-(11, 1, 5, 'Mix Chilli Garlic Fried Rice');
+(11, 1, 5, 'Mix Chilli Garlic Fried Rice'),
+(13, 1, 152, 'Strawberry => 500 grams'),
+(14, 1, 152, 'Butterscotch => 500 grams'),
+(15, 1, 100, 'camorz');
 
 --
 -- Indexes for dumped tables
@@ -889,13 +888,13 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
-  MODIFY `bookmarks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `bookmarks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `giftcards`
@@ -907,7 +906,7 @@ ALTER TABLE `giftcards`
 -- AUTO_INCREMENT for table `orders_details`
 --
 ALTER TABLE `orders_details`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
@@ -931,7 +930,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
