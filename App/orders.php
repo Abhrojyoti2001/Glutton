@@ -11,9 +11,9 @@
 		<h1 class="mt-5 pt-3 mb-4">My Orders</h1>
 		<?php $delivery = $_GET['delivery'];
 		if($delivery == 'no'){
-			$query = 'SELECT * FROM orders WHERE delivery_status LIKE 0 AND user_id LIKE '.$_SESSION["user_id"];
+			$query = 'SELECT * FROM orders WHERE delivery_status LIKE 0 AND user_id LIKE '.$_SESSION["user_id"].' ORDER BY orders_date DESC';
 		}elseif($delivery == 'yes'){		
-			$query = 'SELECT * FROM orders WHERE delivery_status LIKE 1 AND user_id LIKE '.$_SESSION["user_id"];
+			$query = 'SELECT * FROM orders WHERE delivery_status LIKE 1 AND user_id LIKE '.$_SESSION["user_id"].' ORDER BY orders_date DESC';
 		}else{
 			header('Location:cart.php');
 		}
