@@ -154,6 +154,8 @@
 					<?php $row = 0;
 					while($row < count($dish)){
 						$Menu_item = substr($dish[$row],1,(strlen($dish[$row])-2));
+						$Menu_item = str_replace('[', '=> ', $Menu_item);
+						$Menu_item = str_replace(']', '', $Menu_item);
 						echo '<div style="display: flex;">
 							<input type="checkbox" name="'.$Menu_item.'" value="'.$Menu_item.'" class="ml-4">
 							<label for="Menu_item" class="ml-4"><pre><h4><i>'.$Menu_item.'    </i><span class="text-white">    Cost '.$data["cost"].'.00</h4></pre></label>
